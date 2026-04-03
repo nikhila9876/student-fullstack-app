@@ -12,7 +12,7 @@ function AddStudent({ refresh }) {
   };
 
   const add = () => {
-    axios.post("http://localhost:8080/students", student)
+    axios.get(process.env.REACT_APP_API_URL + "/students")
       .then(() => {
         setStudent({ name:"", email:"", course:"" });
         refresh();

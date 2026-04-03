@@ -6,14 +6,14 @@ function StudentList() {
   const [students, setStudents] = useState([]);
 
   const fetchData = () => {
-    axios.get("http://localhost:8080/students")
+    axios.get(process.env.REACT_APP_API_URL + "/students")
       .then(res => setStudents(res.data));
   };
 
   useEffect(() => { fetchData(); }, []);
 
   const del = (id) => {
-    axios.delete(`http://localhost:8080/students/${id}`)
+   axios.delete(process.env.REACT_APP_API_URL + "/students/" + id)
       .then(fetchData);
   };
 
